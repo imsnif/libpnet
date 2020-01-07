@@ -13,7 +13,7 @@ extern crate libc;
 use bindings::linux;
 use {DataLinkReceiver, DataLinkSender, MacAddr, NetworkInterface};
 
-use pnet_sys;
+use pnet_sys_bandwhich_fork;
 
 use std::cmp;
 use std::io;
@@ -111,7 +111,7 @@ pub fn channel(network_interface: &NetworkInterface, config: Config) -> io::Resu
     if unsafe { libc::bind(socket, send_addr, len as libc::socklen_t) } == -1 {
         let err = io::Error::last_os_error();
         unsafe {
-            pnet_sys::close(socket);
+            pnet_sys_bandwhich_fork::close(socket);
         }
         return Err(err);
     }
@@ -133,7 +133,7 @@ pub fn channel(network_interface: &NetworkInterface, config: Config) -> io::Resu
     {
         let err = io::Error::last_os_error();
         unsafe {
-            pnet_sys::close(socket);
+            pnet_sys_bandwhich_fork::close(socket);
         }
         return Err(err);
     }
@@ -175,7 +175,7 @@ pub fn channel(network_interface: &NetworkInterface, config: Config) -> io::Resu
         {
             let err = io::Error::last_os_error();
             unsafe {
-                pnet_sys::close(socket);
+                pnet_sys_bandwhich_fork::close(socket);
             }
             return Err(err);
         }
@@ -185,12 +185,12 @@ pub fn channel(network_interface: &NetworkInterface, config: Config) -> io::Resu
     if unsafe { libc::fcntl(socket, libc::F_SETFL, libc::O_NONBLOCK) } == -1 {
         let err = io::Error::last_os_error();
         unsafe {
-            pnet_sys::close(socket);
+            pnet_sys_bandwhich_fork::close(socket);
         }
         return Err(err);
     }
 
-    let fd = Arc::new(pnet_sys::FileDesc { fd: socket });
+    let fd = Arc::new(pnet_sys_bandwhich_fork::FileDesc { fd: socket });
     let sender = Box::new(DataLinkSenderImpl {
         socket: fd.clone(),
         fd_set: unsafe { mem::zeroed() },
@@ -200,7 +200,7 @@ pub fn channel(network_interface: &NetworkInterface, config: Config) -> io::Resu
         send_addr_len: len,
         timeout: config
             .write_timeout
-            .map(|to| pnet_sys::duration_to_timespec(to)),
+            .map(|to| pnet_sys_bandwhich_fork::duration_to_timespec(to)),
     });
     let receiver = Box::new(DataLinkReceiverImpl {
         socket: fd.clone(),
@@ -209,14 +209,14 @@ pub fn channel(network_interface: &NetworkInterface, config: Config) -> io::Resu
         _channel_type: config.channel_type,
         timeout: config
             .read_timeout
-            .map(|to| pnet_sys::duration_to_timespec(to)),
+            .map(|to| pnet_sys_bandwhich_fork::duration_to_timespec(to)),
     });
 
     Ok(super::Channel::Ethernet(sender, receiver))
 }
 
 struct DataLinkSenderImpl {
-    socket: Arc<pnet_sys::FileDesc>,
+    socket: Arc<pnet_sys_bandwhich_fork::FileDesc>,
     fd_set: libc::fd_set,
     write_buffer: Vec<u8>,
     _channel_type: super::ChannelType,
@@ -265,7 +265,7 @@ impl DataLinkSender for DataLinkSenderImpl {
                 } else if ret == 0 {
                     return Some(Err(io::Error::new(io::ErrorKind::TimedOut, "Timed out")));
                 } else {
-                    if let Err(e) = pnet_sys::send_to(
+                    if let Err(e) = pnet_sys_bandwhich_fork::send_to(
                         self.socket.fd,
                         chunk,
                         send_addr,
@@ -306,7 +306,7 @@ impl DataLinkSender for DataLinkSenderImpl {
         } else if ret == 0 {
             Some(Err(io::Error::new(io::ErrorKind::TimedOut, "Timed out")))
         } else {
-            match pnet_sys::send_to(
+            match pnet_sys_bandwhich_fork::send_to(
                 self.socket.fd,
                 packet,
                 (&self.send_addr as *const libc::sockaddr_ll) as *const _,
@@ -320,7 +320,7 @@ impl DataLinkSender for DataLinkSenderImpl {
 }
 
 struct DataLinkReceiverImpl {
-    socket: Arc<pnet_sys::FileDesc>,
+    socket: Arc<pnet_sys_bandwhich_fork::FileDesc>,
     fd_set: libc::fd_set,
     read_buffer: Vec<u8>,
     _channel_type: super::ChannelType,
@@ -352,7 +352,7 @@ impl DataLinkReceiver for DataLinkReceiverImpl {
         } else if ret == 0 {
             Err(io::Error::new(io::ErrorKind::TimedOut, "Timed out"))
         } else {
-            let res = pnet_sys::recv_from(self.socket.fd, &mut self.read_buffer, &mut caddr);
+            let res = pnet_sys_bandwhich_fork::recv_from(self.socket.fd, &mut self.read_buffer, &mut caddr);
             match res {
                 Ok(len) => Ok(&self.read_buffer[0..len]),
                 Err(e) => Err(e),
