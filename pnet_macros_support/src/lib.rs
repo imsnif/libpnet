@@ -12,7 +12,7 @@
 
 #![deny(missing_docs)]
 
-extern crate pnet_base;
+extern crate pnet_base_bandwhich_fork;
 
 pub mod types;
 pub mod packet;
