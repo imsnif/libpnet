@@ -10,8 +10,8 @@
 
 extern crate ipnetwork;
 extern crate libc;
-extern crate pnet_base;
-extern crate pnet_sys;
+extern crate pnet_base_bandwhich_fork;
+extern crate pnet_sys_bandwhich_fork;
 
 use std::io;
 use std::option::Option;
@@ -19,7 +19,7 @@ use std::time::Duration;
 
 use ipnetwork::IpNetwork;
 
-pub use pnet_base::{MacAddr, ParseMacAddrErr};
+pub use pnet_base_bandwhich_fork::{MacAddr, ParseMacAddrErr};
 
 mod bindings;
 
@@ -235,20 +235,20 @@ impl NetworkInterface {
     }
     
     pub fn is_up(&self) -> bool {
-        self.flags & (pnet_sys::IFF_UP as u32) != 0
+        self.flags & (pnet_sys_bandwhich_fork::IFF_UP as u32) != 0
     }
     pub fn is_broadcast(&self) -> bool {
-        self.flags & (pnet_sys::IFF_BROADCAST as u32) != 0
+        self.flags & (pnet_sys_bandwhich_fork::IFF_BROADCAST as u32) != 0
     }
     /// Is the interface a loopback interface?
     pub fn is_loopback(&self) -> bool {
-        self.flags & (pnet_sys::IFF_LOOPBACK as u32) != 0
+        self.flags & (pnet_sys_bandwhich_fork::IFF_LOOPBACK as u32) != 0
     }
     pub fn is_point_to_point(&self) -> bool {
-        self.flags & (pnet_sys::IFF_POINTOPOINT as u32) != 0
+        self.flags & (pnet_sys_bandwhich_fork::IFF_POINTOPOINT as u32) != 0
     }
     pub fn is_multicast(&self) -> bool {
-        self.flags & (pnet_sys::IFF_MULTICAST as u32) != 0
+        self.flags & (pnet_sys_bandwhich_fork::IFF_MULTICAST as u32) != 0
     }
 }
 
