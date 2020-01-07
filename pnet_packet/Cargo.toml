@@ -1,5 +1,5 @@
 [package]
-name = "pnet_packet"
+name = "pnet_packet_bandwhich_fork"
 version = "0.23.0"
 authors = ["Robert Clipsham <robert@octarineparrot.com>"]
 license = "MIT/Apache-2.0"
@@ -11,10 +11,10 @@ categories = ["network-programming", "parser-implementations"]
 build = "build.rs"
 
 [dependencies]
-pnet_base = { path = "../pnet_base", version = "0.23.0" }
-pnet_macros_support = { path = "../pnet_macros_support", version = "0.23.0" }
+pnet_base_bandwhich_fork = { path = "../pnet_base", version = "0.23.0" }
+pnet_macros_support_bandwhich_fork = { path = "../pnet_macros_support", version = "0.23.0" }
 
 [build-dependencies]
 glob = "0.2"
 syntex = "0.42"
-pnet_macros = { path = "../pnet_macros", version = ">=0.20" }
+pnet_macros_bandwhich_fork = { path = "../pnet_macros", version = ">=0.20" }

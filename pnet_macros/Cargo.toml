@@ -1,5 +1,5 @@
 [package]
-name = "pnet_macros"
+name = "pnet_macros_bandwhich_fork"
 version = "0.23.0"
 authors = ["Robert Clipsham <robert@octarineparrot.com>"]
 license = "MIT/Apache-2.0"
@@ -15,8 +15,8 @@ default = []
 travis = []
 
 [dev-dependencies]
-pnet_base = { path = "../pnet_base", version = "0.23.0" }
-pnet_macros_support = { path = "../pnet_macros_support", version = "0.23.0" }
+pnet_base_bandwhich_fork = { path = "../pnet_base", version = "0.23.0" }
+pnet_macros_support_bandwhich_fork = { path = "../pnet_macros_support", version = "0.23.0" }
 
 [dependencies]
 regex = "1.0.*"
