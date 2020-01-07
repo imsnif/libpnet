@@ -177,7 +177,7 @@ pub trait PrimitiveValues {
 }
 
 
-impl PrimitiveValues for pnet_base::MacAddr {
+impl PrimitiveValues for pnet_base_bandwhich_fork::MacAddr {
     type T = (u8, u8, u8, u8, u8, u8);
     fn to_primitive_values(&self) -> (u8, u8, u8, u8, u8, u8) {
         (self.0, self.1, self.2, self.3, self.4, self.5)
