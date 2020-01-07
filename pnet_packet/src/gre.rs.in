@@ -9,7 +9,7 @@
 #[cfg(test)]
 use Packet;
 
-use pnet_macros_support::types::*;
+use pnet_macros_support_bandwhich_fork::types::*;
 
 /// GRE (Generic Routing Encapsulation) Packet.
 ///

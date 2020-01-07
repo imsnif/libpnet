@@ -11,8 +11,8 @@ categories = ["network-programming", "parser-implementations"]
 build = "build.rs"
 
 [dependencies]
-pnet_base_bandwhich_fork = { path = "../pnet_base", version = "0.23.0" }
-pnet_macros_support_bandwhich_fork = { path = "../pnet_macros_support", version = "0.23.0" }
+pnet_base_bandwhich_fork = { version = "0.23.0" }
+pnet_macros_support_bandwhich_fork = { version = "0.23.0" }
 
 [build-dependencies]
 glob = "0.2"

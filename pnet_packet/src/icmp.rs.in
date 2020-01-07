@@ -7,7 +7,7 @@
 // except according to those terms.
 
 use PrimitiveValues;
-use pnet_macros_support::types::*;
+use pnet_macros_support_bandwhich_fork::types::*;
 
 /// Represents the "ICMP type" header field.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -158,7 +158,7 @@ pub mod echo_reply {
 
     use PrimitiveValues;
     use icmp::{IcmpCode, IcmpType};
-    use pnet_macros_support::types::*;
+    use pnet_macros_support_bandwhich_fork::types::*;
 
     /// Represent the "identifier" field of the ICMP echo replay header.
     #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -236,7 +236,7 @@ pub mod echo_request {
 
     use PrimitiveValues;
     use icmp::{IcmpCode, IcmpType};
-    use pnet_macros_support::types::*;
+    use pnet_macros_support_bandwhich_fork::types::*;
 
     /// Represents the identifier field.
     #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -313,7 +313,7 @@ pub mod destination_unreachable {
     //! ```
 
     use icmp::{IcmpCode, IcmpType};
-    use pnet_macros_support::types::*;
+    use pnet_macros_support_bandwhich_fork::types::*;
 
     /// Enumeration of the recognized ICMP codes for "destination unreachable" ICMP packets.
     #[allow(non_snake_case)]
@@ -383,7 +383,7 @@ pub mod time_exceeded {
     //! ```
 
     use icmp::{IcmpCode, IcmpType};
-    use pnet_macros_support::types::*;
+    use pnet_macros_support_bandwhich_fork::types::*;
 
     /// Enumeration of the recognized ICMP codes for "time exceeded" ICMP packets.
     #[allow(non_snake_case)]

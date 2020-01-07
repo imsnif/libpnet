@@ -9,7 +9,7 @@
 use PrimitiveValues;
 use ip::IpNextHeaderProtocol;
 
-use pnet_macros_support::types::*;
+use pnet_macros_support_bandwhich_fork::types::*;
 
 use std::net::Ipv4Addr;
 
@@ -17,7 +17,7 @@ use std::net::Ipv4Addr;
 #[allow(non_snake_case)]
 #[allow(non_upper_case_globals)]
 pub mod Ipv4Flags {
-    use pnet_macros_support::types::*;
+    use pnet_macros_support_bandwhich_fork::types::*;
 
     /// Don't Fragment flag.
     pub const DontFragment: u3 = 0b010;

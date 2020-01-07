@@ -10,7 +10,7 @@ use Packet;
 use PrimitiveValues;
 use ip::IpNextHeaderProtocols;
 
-use pnet_macros_support::types::*;
+use pnet_macros_support_bandwhich_fork::types::*;
 
 use std::net::Ipv4Addr;
 use std::net::Ipv6Addr;
@@ -20,7 +20,7 @@ use util::{self, Octets};
 #[allow(non_snake_case)]
 #[allow(non_upper_case_globals)]
 pub mod TcpFlags {
-    use pnet_macros_support::types::*;
+    use pnet_macros_support_bandwhich_fork::types::*;
     /// NS – ECN-nonce concealment protection (experimental: see RFC 3540).
     pub const NS: u9be = 0b100000000;
     /// CWR – Congestion Window Reduced (CWR) flag is set by the sending

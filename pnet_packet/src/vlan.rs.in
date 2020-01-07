@@ -1,6 +1,6 @@
 use PrimitiveValues;
 use ethernet::EtherType;
-use pnet_macros_support::types::*;
+use pnet_macros_support_bandwhich_fork::types::*;
 
 /// Represents an IEEE 802.1p class of a service.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]

@@ -9,7 +9,7 @@
 //! Utilities for working with packets, eg. checksumming.
 
 use ip::IpNextHeaderProtocol;
-use pnet_macros_support::types::u16be;
+use pnet_macros_support_bandwhich_fork::types::u16be;
 
 use std::net::{Ipv4Addr, Ipv6Addr};
 use std::slice;

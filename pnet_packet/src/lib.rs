@@ -13,7 +13,7 @@
 extern crate pnet_base_bandwhich_fork;
 extern crate pnet_macros_support_bandwhich_fork;
 
-pub use pnet_macros_support::packet::*;
+pub use pnet_macros_support_bandwhich_fork::packet::*;
 
 pub mod ethernet;
 pub mod gre;

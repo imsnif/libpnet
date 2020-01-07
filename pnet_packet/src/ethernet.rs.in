@@ -9,7 +9,7 @@
 use PrimitiveValues;
 
 use std::fmt;
-use pnet_base::MacAddr;
+use pnet_base_bandwhich_fork::MacAddr;
 
 /// Represents an Ethernet packet.
 #[packet]
