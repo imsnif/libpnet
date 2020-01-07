@@ -7,7 +7,7 @@
 // except according to those terms.
 
 mod macros {
-    extern crate pnet_macros;
+    extern crate pnet_macros_bandwhich_fork;
     extern crate syntex;
     extern crate glob;
 
@@ -24,7 +24,7 @@ mod macros {
                 let file    = Path::new( path.file_stem().expect("Invalid file_stem.") );
                 let dst     = Path::new( &out_dir ).join(file);
                 let mut registry = syntex::Registry::new();
-                pnet_macros::register(&mut registry);
+                pnet_macros_bandwhich_fork::register(&mut registry);
                 registry.expand("", &src, &dst).unwrap();
             }
         }
