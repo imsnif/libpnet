@@ -10,8 +10,8 @@
 #![allow(missing_docs)]
 #![macro_use]
 
-extern crate pnet_base;
-extern crate pnet_macros_support;
+extern crate pnet_base_bandwhich_fork;
+extern crate pnet_macros_support_bandwhich_fork;
 
 pub use pnet_macros_support::packet::*;
 
