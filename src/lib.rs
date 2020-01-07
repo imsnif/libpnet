@@ -117,25 +117,25 @@ extern crate test;
 
 extern crate ipnetwork;
 
-extern crate pnet_base;
-extern crate pnet_datalink;
-extern crate pnet_packet;
-extern crate pnet_sys;
-extern crate pnet_transport;
+extern crate pnet_base_bandwhich_fork;
+extern crate pnet_datalink_bandwhich_fork;
+extern crate pnet_packet_bandwhich_fork;
+extern crate pnet_sys_bandwhich_fork;
+extern crate pnet_transport_bandwhich_fork;
 
 /// Support for sending and receiving data link layer packets.
 pub mod datalink {
-    pub use pnet_datalink::*;
+    pub use pnet_datalink_bandwhich_fork::*;
 }
 
 /// Support for packet parsing and manipulation.
 pub mod packet {
-    pub use pnet_packet::*;
+    pub use pnet_packet_bandwhich_fork::*;
 }
 
 /// Support for sending and receiving transport layer packets.
 pub mod transport {
-    pub use pnet_transport::*;
+    pub use pnet_transport_bandwhich_fork::*;
 }
 
 pub mod util;
