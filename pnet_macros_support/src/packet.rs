@@ -8,7 +8,7 @@
 
 //! Packet helpers for `pnet_macros`.
 
-use pnet_base;
+use pnet_base_bandwhich_fork;
 use std::ops::{Deref, DerefMut, Index, IndexMut, Range, RangeFrom, RangeFull, RangeTo};
 
 /// Represents a generic network packet.
